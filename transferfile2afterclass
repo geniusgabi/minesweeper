@@ -1,0 +1,64 @@
+/**
+ * Write a description of class Play here.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
+ */
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+import java.io.*;
+import java.util.*;
+public class Play
+{
+    public static void main(String[] args)
+    {
+        JPanel home = new JPanel();
+        JFrame newframe = new JFrame();
+        newframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        newframe.setVisible(true);
+        newframe.setLayout(new BorderLayout());
+
+        home.setBackground(Color.white);
+        home.setPreferredSize(new Dimension(500, 500));
+        home.setLayout(null);
+
+        home.setVisible(true);
+        newframe.getContentPane().add(home);
+        newframe.pack();
+        
+        JLabel title = new JLabel("Minesweeper");
+        title.setBounds(225, 50, 200, 50);
+        home.add(title);
+        
+        JButton easy = new JButton("Easy");
+        easy.setBounds(230, 100, 75, 50);
+        home.add(easy);
+        easy.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Board b = new Board(12, 12, newframe);
+                home.removeAll();
+            }
+        });
+        
+        JButton medium = new JButton("Medium");
+        medium.setBounds(215, 175, 100, 50);
+        home.add(medium);
+        medium.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Board b = new Board(22, 22, newframe);
+                home.removeAll();
+            }
+        });
+        
+        JButton hard = new JButton("Hard");
+        hard.setBounds(230, 240, 75, 50);
+        home.add(hard);
+        hard.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Board b = new Board(32, 32, newframe);
+            }
+        });
+        
+    }
+}
